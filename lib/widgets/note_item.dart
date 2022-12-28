@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/res/colors.dart';
 import 'package:sizer/sizer.dart';
 
 class NoteItem extends StatelessWidget {
@@ -13,7 +14,7 @@ class NoteItem extends StatelessWidget {
       padding: EdgeInsets.symmetric(
           vertical: 2.h,horizontal: 2.w),
       decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.07),
+          color: MColors.kDarkContainerBG,
           borderRadius: BorderRadius.circular(12)
       ),
       child: Column(
