@@ -10,18 +10,23 @@ class NoteItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 30.h,
-      padding: EdgeInsets.symmetric(vertical: 2.h,horizontal: 4.w),
+      padding: EdgeInsets.symmetric(
+          vertical: 2.h,horizontal: 2.w),
       decoration: BoxDecoration(
-          color: Colors.red,
+          color: Colors.white.withOpacity(0.07),
           borderRadius: BorderRadius.circular(12)
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Data",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.w600)),
+          ListTile(
+            title:Text("Data",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.w600)),
+            subtitle: Text("Content",style: TextStyle(fontSize: 14.sp)),
+            trailing: GestureDetector(onTap: (){},child: Icon(Icons.delete)),
+          ),
           SizedBox(height: 2.h),
-          Text("Content",style: TextStyle(fontSize: 14.sp)),
+          Align(alignment: Alignment.bottomRight,
+              child: Text("28 DEC 2022",style: TextStyle(fontSize: 9.sp))),
 
         ],
       ),
