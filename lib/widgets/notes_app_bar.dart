@@ -10,7 +10,7 @@ class NotesAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text("Notes",style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.w600)),
+        Text("Notes",style: Theme.of(context).textTheme.headlineLarge),
         const Spacer(),
         const SearchIcon()
       ],

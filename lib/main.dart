@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/res/theme/dark_theme_style.dart';
 import 'package:notes_app/views/home/notes_view.dart';
 import 'package:sizer/sizer.dart';
 
@@ -15,9 +16,7 @@ class NotesApp extends StatelessWidget {
         builder: (context, orientation, deviceType) =>
             MaterialApp(
                 debugShowCheckedModeBanner: false,
-                theme: ThemeData(
-                  brightness: Brightness.dark,
-                  useMaterial3: true
-                ), home: const NotesView()));
+                theme: DarkStyles.darkTheme(context),
+                home: const NotesView()));
   }
 }
