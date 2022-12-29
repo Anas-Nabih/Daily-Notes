@@ -11,7 +11,7 @@ class FoldersViewBody extends StatelessWidget {
     return SafeArea(
       child: GridView.builder(
           itemCount: 12,
-          padding: EdgeInsets.symmetric(horizontal: 3.w),
+          padding: EdgeInsets.symmetric(vertical: 2.h,horizontal: 3.w),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               mainAxisExtent: 25.h,

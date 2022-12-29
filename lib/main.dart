@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/res/theme/dark_theme_style.dart';
-import 'package:notes_app/views/folders_view/folsers_view.dart';
-import 'package:notes_app/views/notes_view/notes_view.dart';
+import 'package:notes_app/views/home/home_view.dart';
 import 'package:sizer/sizer.dart';
 
 void main() {
@@ -18,6 +17,6 @@ class NotesApp extends StatelessWidget {
             MaterialApp(
                 debugShowCheckedModeBanner: false,
                 theme: DarkStyles.darkTheme(context),
-                home: const FoldersView()));
+                home: HomeView()));
   }
 }
