@@ -9,13 +9,13 @@ class NotesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MColors.kDarkModeBG,
+      backgroundColor: MColors.kDarkScaffoldBG,
       floatingActionButton: FloatingActionButton(
         backgroundColor: MColors.kSecondaryColor,
         child: const Icon(Icons.add),
         onPressed: () {
           showModalBottomSheet(
-            backgroundColor: MColors.kDarkModeBG,
+            backgroundColor: MColors.kDarkScaffoldBG,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12)),
               context: context,

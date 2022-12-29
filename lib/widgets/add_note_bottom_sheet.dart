@@ -17,9 +17,9 @@ class AddNoteBottomSheet extends StatelessWidget {
           curve: Curves.decelerate,
           child: Column(
             children: [
-              const CustomTextField(hintText: "Title"),
+               CustomTextField(hintText: "Title"),
               SizedBox(height: 2.h),
-              const CustomTextField(hintText: "Subject", maxLength: 5),
+               CustomTextField(hintText: "Subject", maxLines: 5),
               SizedBox(height: 4.h),
               CustomButton(
                 onTapped: () => Navigator.pop(context),

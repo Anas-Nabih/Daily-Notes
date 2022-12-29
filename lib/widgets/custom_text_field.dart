@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/res/colors.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({required this.hintText, this.maxLength = 1});
+  const CustomTextField({required this.hintText, this.maxLines = 1});
 
   final String hintText;
-  final int maxLength;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       cursorColor: MColors.kDarkBorderColor,
-      maxLines: maxLength,
+      maxLines: maxLines,
       decoration: InputDecoration(
           hintText: hintText,
           border: buildBorderStyle(),
@@ -23,6 +23,6 @@ class CustomTextField extends StatelessWidget {
   OutlineInputBorder buildBorderStyle() {
     return OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: MColors.kDarkBorderColor));
+        borderSide:  BorderSide(color: MColors.kDarkBorderColor));
   }
 }

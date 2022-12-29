@@ -8,14 +8,14 @@ class DarkStyles {
         useMaterial3: true,
 
         /// Colors
-        scaffoldBackgroundColor: MColors.kDarkModeBG,
+        scaffoldBackgroundColor: MColors.kDarkScaffoldBG,
         iconTheme:const IconThemeData(color: Colors.white) ,
 
-
+        hintColor: MColors.kDarkHintColor,
         /// Text Styles
         textTheme: TextTheme(
           headline1: TextStyle(color: Colors.white,fontSize: 14.sp, fontWeight: FontWeight.w600),
-          subtitle1: TextStyle(color: Colors.white70,fontWeight: FontWeight.w400,fontSize: 12.sp),
+          subtitle1: TextStyle(color: Colors.white.withOpacity(0.85),fontWeight: FontWeight.w400,fontSize: 12.sp),
           subtitle2: TextStyle(color: Colors.white54,fontWeight: FontWeight.w400,fontSize: 9.sp),
           headlineLarge: TextStyle(color: Colors.white,fontSize: 14.sp, fontWeight: FontWeight.w600)),
 
