@@ -5,7 +5,7 @@ import 'package:sizer/sizer.dart';
 class CustomButton extends StatelessWidget {
   const CustomButton({required this.onTapped});
 
-  final VoidCallback onTapped;
+  final void Function()? onTapped;
 
   @override
   Widget build(BuildContext context) {
