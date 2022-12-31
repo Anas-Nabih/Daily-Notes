@@ -21,28 +21,30 @@ class _AddNoteFormState extends State<AddNoteForm> {
     return Form(
       key: _formKey,
       autovalidateMode: _autoValidateMode,
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          CustomTextField(hintText: "Title",onSaved: (val)=>title = val),
-          SizedBox(height: 2.h),
-          CustomTextField(hintText: "Subject", maxLines: 5,onSaved: (val)=>subTitle = val),
-          SizedBox(height: 4.h),
-          CustomButton(
-            onTapped: (){
-              if(_formKey.currentState!.validate()){
-                _formKey.currentState!.save();
-                Navigator.pop(context);
-              }else{
-                _autoValidateMode = AutovalidateMode.always;
-                setState(() {
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            CustomTextField(hintText: "Title",onSaved: (val)=>title = val),
+            SizedBox(height: 2.h),
+            CustomTextField(hintText: "Subject", maxLines: 5,onSaved: (val)=>subTitle = val),
+            SizedBox(height: 4.h),
+            CustomButton(
+              onTapped: (){
+                if(_formKey.currentState!.validate()){
+                  _formKey.currentState!.save();
+                  Navigator.pop(context);
+                }else{
+                  _autoValidateMode = AutovalidateMode.always;
+                  setState(() {
 
-                });
-              }
-              },
-          ),
-          SizedBox(height: 4.h),
-        ],
+                  });
+                }
+                },
+            ),
+            SizedBox(height: 4.h),
+          ],
+        ),
       ),
     );
   }

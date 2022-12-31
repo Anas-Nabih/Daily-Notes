@@ -17,7 +17,8 @@ class CustomButton extends StatelessWidget {
             color: MColors.kDarkContainerBG,
             borderRadius: BorderRadius.circular(12)
         ),
-        child: Center(child: Text("Add Note",style: TextStyle(fontSize: 13.sp),)),
+        child: Center(child: Text("Add Note",
+          style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 13.sp),)),
       ),
     );
   }
