@@ -10,6 +10,8 @@ class AddNoteCubit extends Cubit<AddNoteState> {
   AddNoteCubit() : super(AddNoteInitial());
 
 
+  int currentIndex = 0;
+
 
   addNote(NoteModel note) async {
 
@@ -23,5 +25,10 @@ class AddNoteCubit extends Cubit<AddNoteState> {
        emit(AddNoteFailure(errorMsg: e.toString()));
       print(e.toString());
     }
+  }
+
+  changeColor({required int index}){
+    currentIndex = index;
+    emit(AddNoteColorChanged());
   }
 }

@@ -9,6 +9,8 @@ class AddNoteLoading extends AddNoteState {}
 
 class AddNoteSuccess extends AddNoteState {}
 
+class AddNoteColorChanged extends AddNoteState {}
+
 class AddNoteFailure extends AddNoteState {
   AddNoteFailure({required this.errorMsg});
 
