@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/res/colors.dart';
 import 'package:sizer/sizer.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({
-    required this.onTapped
+    required this.onTapped,required this.note
   }) ;
+
+  final NoteModel note;
 
   final VoidCallback onTapped;
   @override
@@ -22,9 +25,9 @@ class NoteItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ListTile(
-              title: Text("Data",
+              title: Text(note.title,
                   style:Theme.of(context).textTheme.headline1),
-              subtitle: Text("Content", style:
+              subtitle: Text(note.subTitle, style:
               Theme.of(context).textTheme.subtitle1),
               trailing:
                   GestureDetector(onTap: () {}, child: Icon(Icons.delete)),
@@ -32,7 +35,7 @@ class NoteItem extends StatelessWidget {
             SizedBox(height: 2.h),
             Align(
                 alignment: Alignment.bottomRight,
-                child: Text("28 DEC 2022", style: Theme.of(context).textTheme.subtitle2)),
+                child: Text(note.date, style: Theme.of(context).textTheme.subtitle2)),
           ],
         ),
       ),
