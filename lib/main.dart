@@ -11,9 +11,11 @@ import 'package:sizer/sizer.dart';
 
 void main() async{
   await Hive.initFlutter();
-  await  Hive.openBox(Const.notesBox);
-  Hive.registerAdapter(NoteModelAdapter());
   Bloc.observer = AppBlocObserver();
+
+  Hive.registerAdapter(NoteModelAdapter());
+  await  Hive.openBox<NoteModel>(Const.notesBox);
+
   runApp(const NotesApp());
 }
 
@@ -24,14 +26,9 @@ class NotesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(
         builder: (context, orientation, deviceType) =>
-            MultiBlocProvider(
-              providers: [
-                BlocProvider(create: (context) => AddNoteCubit(),),
-              ],
-              child: MaterialApp(
-                  debugShowCheckedModeBanner: false,
-                  theme: DarkStyles.darkTheme(context),
-                  home: HomeView()),
-            ));
+            MaterialApp(
+                debugShowCheckedModeBanner: false,
+                theme: DarkStyles.darkTheme(context),
+                home: HomeView()));
   }
 }

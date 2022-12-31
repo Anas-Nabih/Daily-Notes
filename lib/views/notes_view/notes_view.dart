@@ -13,6 +13,7 @@ class NotesView extends StatelessWidget {
       backgroundColor: MColors.kDarkScaffoldBG,
       floatingActionButton: CustomFloatingActionButton(onTapped: () {
         showModalBottomSheet(
+          isScrollControlled: true,
             backgroundColor: MColors.kDarkScaffoldBG,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12)),
