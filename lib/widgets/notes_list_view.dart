@@ -16,27 +16,26 @@ class NotesListView extends StatefulWidget {
 }
 
 class _NotesListViewState extends State<NotesListView> {
-
   @override
   void initState() {
     BlocProvider.of<NotesCubit>(context).fetchAllNotes();
-     super.initState();
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
-       var notes = BlocProvider.of<NotesCubit>(context).notes ?? [];
+        var notes = BlocProvider.of<NotesCubit>(context).notes ?? [];
         return ListView.separated(
           separatorBuilder: (context, index) => SizedBox(height: 2.h),
           itemCount: notes.length,
           itemBuilder: (context, index) => NoteItem(
-            note: notes[index],
+              note: notes[index],
               onTapped: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const EditNoteView(),
+                    builder: (context) => EditNoteView(note: notes[index]),
                   ))),
         );
       },

@@ -19,7 +19,7 @@ class HomeView extends StatelessWidget {
            children: [
              Padding(
                  padding: EdgeInsets.symmetric(vertical: 1.h,horizontal: 3.w),
-                 child: const CustomAppBar(title:"Notes",icon: Icons.search_outlined)),
+                 child: CustomAppBar(onTapped: (){},title:"Notes",icon: Icons.search_outlined)),
 
              TabBar(tabs: [
                Tab(icon: Text("All"),),
