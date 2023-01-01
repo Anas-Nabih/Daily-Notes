@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app/cubits/add_folder_cubit/add_category_cubit.dart';
+import 'package:notes_app/cubits/add_category_cubit/add_category_cubit.dart';
+import 'package:notes_app/cubits/categories_cubit/categories_cubit.dart';
 import 'package:notes_app/models/category_model.dart';
 import 'package:notes_app/widgets/custom_button.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
-import 'package:notes_app/widgets/custom_text_form_field.dart';
 import 'package:sizer/sizer.dart';
 
 class AddCategoryBottomSheet extends StatelessWidget {
@@ -17,13 +17,14 @@ class AddCategoryBottomSheet extends StatelessWidget {
       child: BlocConsumer<AddCategoryCubit, AddCategoryState>(
         listener: (context, state) {
           if (state is AddCategorySuccess) {
+            BlocProvider.of<CategoriesCubit>(context).getAllCategories();
             Navigator.pop(context);
           } else if (state is AddCategoryFailure) {
             debugPrint(state.errorMsg);
           }
         },
-        builder: (context, state){
-          final addCatBloc =  BlocProvider.of<AddCategoryCubit>(context);
+        builder: (context, state) {
+          final addCatBloc = BlocProvider.of<AddCategoryCubit>(context);
           return Container(
             padding: EdgeInsets.only(
                 top: 4.h,
@@ -33,8 +34,11 @@ class AddCategoryBottomSheet extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  CustomTextField(controller:addCatBloc.controller ,hintText: "Category Name",
-                  onSaved: (val)=>addCatBloc.catName = val.toString()),
+                  CustomTextField(
+                      controller: addCatBloc.controller,
+                      hintText: "Category Name",
+                      onSaved: (val) => addCatBloc.catName = val.toString(),
+                      onChanged: (val) => addCatBloc.catName = val.toString()),
                   SizedBox(height: 4.h),
                   Row(
                     children: [
@@ -48,9 +52,10 @@ class AddCategoryBottomSheet extends StatelessWidget {
                               isLoading: state is AddCategoryLoading,
                               title: "Add Category",
                               onTapped: () {
-                                CategoryModel category = CategoryModel(catId: 1,
-                                    catName: addCatBloc.catName);
-                                BlocProvider.of<AddCategoryCubit>(context).addCategory(category);
+                                CategoryModel category = CategoryModel(
+                                    catId: 1, catName: addCatBloc.catName);
+                                BlocProvider.of<AddCategoryCubit>(context)
+                                    .addCategory(category);
                               })),
                     ],
                   ),

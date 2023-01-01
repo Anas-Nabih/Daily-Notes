@@ -1,23 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:notes_app/cubits/categories_cubit/categories_cubit.dart';
 import 'package:notes_app/res/colors.dart';
 import 'package:sizer/sizer.dart';
 
-class FoldersViewBody extends StatelessWidget {
+class FoldersViewBody extends StatefulWidget {
   const FoldersViewBody({Key? key}) : super(key: key);
+
+  @override
+  State<FoldersViewBody> createState() => _FoldersViewBodyState();
+}
+
+class _FoldersViewBodyState extends State<FoldersViewBody> {
+  @override
+  void initState() {
+    BlocProvider.of<CategoriesCubit>(context).getAllCategories();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: GridView.builder(
-          itemCount: 12,
-          padding: EdgeInsets.symmetric(vertical: 2.h,horizontal: 3.w),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisExtent: 25.h,
-              crossAxisSpacing: 4.w,
-              mainAxisSpacing: 2.h),
-          itemBuilder: (context, index) => FolderItem(folderName: "Folder Name")),
+      child: BlocBuilder<CategoriesCubit, CategoriesState>(
+        builder: (context, state) {
+          var categories =
+              BlocProvider.of<CategoriesCubit>(context).categories ?? [];
+          return GridView.builder(
+              itemCount: categories.length,
+              padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 3.w),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisExtent: 25.h,
+                  crossAxisSpacing: 4.w,
+                  mainAxisSpacing: 2.h),
+              itemBuilder: (context, index) =>
+                  FolderItem(folderName: categories[index].catName));
+        },
+      ),
     );
   }
 }

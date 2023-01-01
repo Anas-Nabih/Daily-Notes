@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/views/folders_view/folsers_view.dart';
+import 'package:notes_app/views/categories_view/categories_view.dart';
 import 'package:notes_app/views/notes_view/notes_view.dart';
 import 'package:notes_app/widgets/notes_app_bar.dart';
 import 'package:sizer/sizer.dart';
@@ -7,7 +7,7 @@ import 'package:sizer/sizer.dart';
 class HomeView extends StatelessWidget {
   HomeView({Key? key}) : super(key: key);
 
-   final List<Widget> tabs = [const NotesView(),const FoldersView()];
+   final List<Widget> tabs = [const NotesView(),const CategoriesView()];
 
   @override
   Widget build(BuildContext context) {
