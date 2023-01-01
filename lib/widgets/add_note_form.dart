@@ -5,7 +5,7 @@ import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/colors_list_view.dart';
 import 'package:notes_app/widgets/custom_button.dart';
-import 'package:notes_app/widgets/custom_text_field.dart';
+import 'package:notes_app/widgets/custom_text_form_field.dart';
 import 'package:sizer/sizer.dart';
 
 class AddNoteForm extends StatefulWidget {
@@ -30,9 +30,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            CustomTextField(hintText: "Title", onSaved: (val) => title = val),
+            CustomTextFormField(hintText: "Title", onSaved: (val) => title = val),
             SizedBox(height: 2.h),
-            CustomTextField(hintText: "Subject", maxLines: 5, onSaved: (val) => subTitle = val),
+            CustomTextFormField(hintText: "Subject", maxLines: 5, onSaved: (val) => subTitle = val),
             SizedBox(height: 2.h),
             const ColorsListView(),
             SizedBox(height: 2.h),

@@ -19,6 +19,14 @@ class DarkStyles {
           subtitle2: TextStyle(color: Colors.white54,fontWeight: FontWeight.w400,fontSize: 9.sp),
           headlineLarge: TextStyle(color: Colors.white,fontSize: 14.sp, fontWeight: FontWeight.w600)),
 
+
+      /// Bottom Sheet Theme Data
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: MColors.kDarkScaffoldBG,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      ),
+
+
       /// List Tile Theme
       listTileTheme: const ListTileThemeData(
         iconColor: Colors.white,

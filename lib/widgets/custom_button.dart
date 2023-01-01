@@ -3,10 +3,11 @@ import 'package:notes_app/res/colors.dart';
 import 'package:sizer/sizer.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({required this.onTapped, this.isLoading = false});
+  const CustomButton({this.title = "Add Note",required this.onTapped, this.isLoading = false});
 
   final void Function()? onTapped;
   final bool isLoading;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +16,11 @@ class CustomButton extends StatelessWidget {
       child: Container(
         height: 8.h,
         decoration: BoxDecoration(
-            color: MColors.kDarkContainerBG,
+            color: title == "Cancel" ?Colors.white.withOpacity(0.04) : MColors.kDarkContainerBG,
             borderRadius: BorderRadius.circular(12)),
         child: Center(
             child: !isLoading
-                ? Text("Add Note",
+                ? Text(title,
                     style: Theme.of(context)
                         .textTheme
                         .headline1!
