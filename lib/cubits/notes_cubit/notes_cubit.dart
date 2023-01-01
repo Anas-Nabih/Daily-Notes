@@ -12,9 +12,18 @@ class NotesCubit extends Cubit<NotesState> {
   NotesCubit() : super(NotesInitial());
 
   List<NoteModel>? notes;
+
   fetchAllNotes() {
     var notesBox = Hive.box<NoteModel>(Const.notesBox);
     notes = notesBox.values.toList();
+    print("notes in home: ${notes!.length} : ${notes![2].category}");
     emit(NotesSuccess());
+  }
+
+  List<NoteModel> fetchNotesWhen({required String catName}) {
+    var notesBox = Hive.box<NoteModel>(Const.notesBox);
+    List<NoteModel> notesList = notesBox.values.where((note) => note.category.contains(catName)).toList();
+    emit(NotesSuccess());
+    return notesList;
   }
 }
