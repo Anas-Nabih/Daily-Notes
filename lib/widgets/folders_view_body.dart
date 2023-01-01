@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:notes_app/comman_utils/utils.dart';
 import 'package:notes_app/cubits/categories_cubit/categories_cubit.dart';
 import 'package:notes_app/res/colors.dart';
+import 'package:notes_app/views/notes_inside_category/notes_inside_category.dart';
+import 'package:notes_app/widgets/notes_place_holder.dart';
 import 'package:sizer/sizer.dart';
 
 class FoldersViewBody extends StatefulWidget {
@@ -26,7 +29,10 @@ class _FoldersViewBodyState extends State<FoldersViewBody> {
         builder: (context, state) {
           var categories =
               BlocProvider.of<CategoriesCubit>(context).categories ?? [];
-          return GridView.builder(
+          return categories.isEmpty ? const NotesPalaceHolder(
+            title: "No Folders",
+            subtitle: "Tap the Add button to create one.",
+          ) : GridView.builder(
               itemCount: categories.length,
               padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 3.w),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -35,7 +41,7 @@ class _FoldersViewBodyState extends State<FoldersViewBody> {
                   crossAxisSpacing: 4.w,
                   mainAxisSpacing: 2.h),
               itemBuilder: (context, index) =>
-                  FolderItem(folderName: categories[index].catName));
+                  FolderItem(folderName: categories[index].catName,onTapped: ()=> Utils.push(context: context, navigationScreen:  NotesInsideCategory(category: categories[index],))));
         },
       ),
     );
@@ -45,27 +51,31 @@ class _FoldersViewBodyState extends State<FoldersViewBody> {
 class FolderItem extends StatelessWidget {
   const FolderItem({
     required this.folderName,
-    Key? key,
+    Key? key, required this.onTapped,
   }) : super(key: key);
 
   final String folderName;
+  final void Function() onTapped;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 2.h),
-      decoration: BoxDecoration(
-          color: MColors.kDarkContainerBG,
-          borderRadius: BorderRadius.circular(12)),
-      child: Column(
-        children: [
-          SvgPicture.asset("assets/images/folder.svg", height: 15.h),
-          SizedBox(height: 2.h),
-          Text(
-            folderName,
-            style: Theme.of(context).textTheme.subtitle1,
-          )
-        ],
+    return GestureDetector(
+      onTap: onTapped,
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 2.h),
+        decoration: BoxDecoration(
+            color: MColors.kDarkContainerBG,
+            borderRadius: BorderRadius.circular(12)),
+        child: Column(
+          children: [
+            SvgPicture.asset("assets/images/folder.svg", height: 15.h),
+            SizedBox(height: 2.h),
+            Text(
+              folderName,
+              style: Theme.of(context).textTheme.subtitle1,
+            )
+          ],
+        ),
       ),
     );
   }

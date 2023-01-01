@@ -11,7 +11,7 @@ class CategoriesView extends StatelessWidget {
       floatingActionButton: CustomFloatingActionButton(onTapped: (){
         showModalBottomSheet(context: context, builder: (context)=> const AddCategoryBottomSheet());
       }),
-      body: FoldersViewBody(),
+      body: const FoldersViewBody(),
     );
   }
 }

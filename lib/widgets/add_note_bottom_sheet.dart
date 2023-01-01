@@ -6,7 +6,8 @@ import 'package:notes_app/widgets/add_note_form.dart';
 import 'package:sizer/sizer.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
-  const AddNoteBottomSheet({Key? key}) : super(key: key);
+  const AddNoteBottomSheet({this.catName = "CATEGORY",Key? key}) : super(key: key);
+  final String catName;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class AddNoteBottomSheet extends StatelessWidget {
                 right: 4.w,
                 left: 4.w,
                 bottom: MediaQuery.of(context).viewInsets.bottom),
-            child: const AddNoteForm(),
+            child: AddNoteForm(catName: catName),
           ),
         ),
       ),

@@ -17,8 +17,9 @@ class DarkStyles {
           headline1: TextStyle(color: Colors.white,fontSize: 14.sp, fontWeight: FontWeight.w600),
           subtitle1: TextStyle(color: Colors.white.withOpacity(0.85),fontWeight: FontWeight.w400,fontSize: 12.sp),
           subtitle2: TextStyle(color: Colors.white54,fontWeight: FontWeight.w400,fontSize: 9.sp),
-          headlineLarge: TextStyle(color: Colors.white,fontSize: 14.sp, fontWeight: FontWeight.w600)),
-
+          headlineLarge: TextStyle(color: Colors.white,fontSize: 14.sp, fontWeight: FontWeight.w600),
+          bodyText1:  TextStyle(color:MColors.kTextHolder,fontSize: 14.sp,),
+        ),
 
       /// Bottom Sheet Theme Data
       bottomSheetTheme: BottomSheetThemeData(

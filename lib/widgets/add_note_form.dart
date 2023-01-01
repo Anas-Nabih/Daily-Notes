@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app/comman_utils/comman_utils.dart';
+import 'package:notes_app/comman_utils/utils.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/colors_list_view.dart';
@@ -9,7 +9,8 @@ import 'package:notes_app/widgets/custom_text_form_field.dart';
 import 'package:sizer/sizer.dart';
 
 class AddNoteForm extends StatefulWidget {
-  const AddNoteForm({Key? key}) : super(key: key);
+  const AddNoteForm({this.catName="CATEGORY",Key? key}) : super(key: key);
+  final String catName;
 
   @override
   State<AddNoteForm> createState() => _AddNoteFormState();
@@ -48,7 +49,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                           title: title!,
                           subTitle: subTitle!,
                           date: Utils.formatDate(DateTime.now()),
-                          category: "category",
+                          category: widget.catName,
                           color: Colors.red.value);
 
                       BlocProvider.of<AddNoteCubit>(context).addNote(note);
