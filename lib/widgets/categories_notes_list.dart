@@ -17,29 +17,34 @@ class CategoryNotesListView extends StatefulWidget {
 
 class _CategoryNotesListViewState extends State<CategoryNotesListView> {
   void initState() {
-    debugPrint("catergory name: ${widget.catName}");
     BlocProvider.of<NotesCubit>(context).fetchNotesWhen(catName: widget.catName);
-    super.initState();
+     super.initState();
   }
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
-        var notes = BlocProvider.of<NotesCubit>(context).notes ?? [];
-        return notes.isEmpty ? const NotesPalaceHolder(
-          title: "No Notes",
-          subtitle: "Tap the Add button to create a note.",
-
-        ) : ListView.separated(
-          separatorBuilder: (context, index) => SizedBox(height: 2.h),
-          itemCount: notes.length,
-          itemBuilder: (context, index) => NoteItem(
-              note: notes[index],
-              onTapped: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => EditNoteView(note: notes[index]),
-                  ))),
+        var notes = BlocProvider.of<NotesCubit>(context).selectedNotes ?? [];
+         return notes.isEmpty ?  Column(
+           children: [
+             SizedBox(height: 40.h),
+             const NotesPalaceHolder(
+               title: "No Notes",
+               subtitle: "Tap the Add button to create a note.",
+             )
+           ],
+         ) : Expanded(
+          child: ListView.separated(
+            separatorBuilder: (context, index) => SizedBox(height: 2.h),
+            itemCount: notes.length,
+            itemBuilder: (context, index) => NoteItem(
+                note: notes[index],
+                onTapped: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EditNoteView(note: notes[index]),
+                    ))),
+          ),
         );
       },
     );

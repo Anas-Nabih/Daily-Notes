@@ -16,14 +16,16 @@ class NotesCubit extends Cubit<NotesState> {
   fetchAllNotes() {
     var notesBox = Hive.box<NoteModel>(Const.notesBox);
     notes = notesBox.values.toList();
-    print("notes in home: ${notes!.length} : ${notes![2].category}");
     emit(NotesSuccess());
   }
 
-  List<NoteModel> fetchNotesWhen({required String catName}) {
+  List<NoteModel>? selectedNotes;
+
+  fetchNotesWhen({required String catName}) {
     var notesBox = Hive.box<NoteModel>(Const.notesBox);
-    List<NoteModel> notesList = notesBox.values.where((note) => note.category.contains(catName)).toList();
+    selectedNotes = notesBox.values
+        .where((note) => note.category.contains(catName))
+        .toList();
     emit(NotesSuccess());
-    return notesList;
   }
 }

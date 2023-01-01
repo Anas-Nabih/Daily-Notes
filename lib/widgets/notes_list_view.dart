@@ -28,11 +28,11 @@ class _NotesListViewState extends State<NotesListView> {
     return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
         var notes = BlocProvider.of<NotesCubit>(context).notes ?? [];
-        return /*notes.isEmpty ?*/ const NotesPalaceHolder(
+        return notes.isEmpty ? const NotesPalaceHolder(
           title: "No Notes",
           subtitle: "Tap the Add button to create a note.",
 
-        ) /*: ListView.separated(
+        ) : ListView.separated(
           separatorBuilder: (context, index) => SizedBox(height: 2.h),
           itemCount: notes.length,
           itemBuilder: (context, index) => NoteItem(
@@ -42,7 +42,7 @@ class _NotesListViewState extends State<NotesListView> {
                   MaterialPageRoute(
                     builder: (context) => EditNoteView(note: notes[index]),
                   ))),
-        )*/;
+        );
       },
     );
   }

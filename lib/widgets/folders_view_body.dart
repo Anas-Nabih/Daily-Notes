@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:notes_app/comman_utils/utils.dart';
 import 'package:notes_app/cubits/categories_cubit/categories_cubit.dart';
 import 'package:notes_app/res/colors.dart';
-import 'package:notes_app/views/category_notes/notes_inside_category.dart';
+import 'package:notes_app/views/category_notes/categories_notes.dart';
 import 'package:notes_app/widgets/notes_place_holder.dart';
 import 'package:sizer/sizer.dart';
 
