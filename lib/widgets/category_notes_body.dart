@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/comman_utils/utils.dart';
 import 'package:notes_app/models/category_model.dart';
 import 'package:notes_app/widgets/categories_notes_list.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';

@@ -21,10 +21,10 @@ class NotesCubit extends Cubit<NotesState> {
 
   List<NoteModel>? selectedNotes;
 
-  fetchNotesWhen({required String catName}) {
+  fetchNotesWhen({required String categoryName}) {
     var notesBox = Hive.box<NoteModel>(Const.notesBox);
     selectedNotes = notesBox.values
-        .where((note) => note.category.contains(catName))
+        .where((note) => note.category.contains(categoryName))
         .toList();
     emit(NotesSuccess());
   }

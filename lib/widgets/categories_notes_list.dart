@@ -17,7 +17,7 @@ class CategoryNotesListView extends StatefulWidget {
 
 class _CategoryNotesListViewState extends State<CategoryNotesListView> {
   void initState() {
-    BlocProvider.of<NotesCubit>(context).fetchNotesWhen(catName: widget.catName);
+    BlocProvider.of<NotesCubit>(context).fetchNotesWhen(categoryName: widget.catName);
      super.initState();
   }
   @override

@@ -19,7 +19,7 @@ class AddNoteBottomSheet extends StatelessWidget {
             if(catName == "CATEGORY"){
               BlocProvider.of<NotesCubit>(context).fetchAllNotes();
             }else{
-              BlocProvider.of<NotesCubit>(context).fetchNotesWhen(catName: catName);
+              BlocProvider.of<NotesCubit>(context).fetchNotesWhen(categoryName: catName);
             }
             Navigator.pop(context);
           } else if (state is AddNoteFailure) {
