@@ -2,7 +2,7 @@
 
 class MColors{
   static const  Color kDarkScaffoldBG = Color(0xff1f1d2b);
-  static const  Color kSecondaryColor = Color(0xfffebf47);
+  static const  Color kFilterIndicatorColor = Color(0xfffebf47);
   static const  Color kFloatingActionBtnColor = Color(0xff6f6fc8);
   static const  Color kTextHolder =  Colors.grey;
   static   Color kDarkContainerBG = Colors.white.withOpacity(0.07);

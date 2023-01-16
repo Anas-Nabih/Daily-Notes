@@ -13,6 +13,16 @@ class NotesCubit extends Cubit<NotesState> {
 
   List<NoteModel>? notes;
 
+  bool isAll = true;
+
+  triggerIsAll({required bool isAll}){
+    if(isAll){
+      emit(NotesAll());
+    }else{
+      emit(NotesFolder());
+    }
+  }
+
   fetchAllNotes() {
     var notesBox = Hive.box<NoteModel>(Const.notesBox);
     notes = notesBox.values.toList();

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/widgets/search_icon.dart';
 
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
+class CustomHomeAppBar extends StatelessWidget {
+  const CustomHomeAppBar({
     required this.title,
     required this.icon,
     required this.onTapped

@@ -25,7 +25,7 @@ class _EditNoteBodyState extends State<EditNoteBody> {
         padding: EdgeInsets.symmetric(vertical: 1.h,horizontal: 3.w),
         child: Column(
           children: [
-             CustomAppBar(onTapped: (){
+             CustomHomeAppBar(onTapped: (){
                widget.note.title = title ?? widget.note.title;
                widget.note.subTitle = content ?? widget.note.subTitle;
                widget.note.save();

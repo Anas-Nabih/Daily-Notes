@@ -5,6 +5,7 @@ import 'package:notes_app/comman_utils/constants.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/cubits/categories_cubit/categories_cubit.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
+import 'package:notes_app/home.dart';
 import 'package:notes_app/models/category_model.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/res/theme/dark_theme_style.dart';
@@ -40,7 +41,7 @@ class NotesApp extends StatelessWidget {
               child: MaterialApp(
                   debugShowCheckedModeBanner: false,
                   theme: DarkStyles.darkTheme(context),
-                  home: HomeView()),
+                  home: Home()),
             ));
   }
 }

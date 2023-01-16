@@ -19,7 +19,7 @@ class HomeView extends StatelessWidget {
             children: [
               Padding(
                   padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 3.w),
-                  child: CustomAppBar(
+                  child: CustomHomeAppBar(
                       onTapped: () {},
                       title: "Notes",
                       icon: Icons.search_outlined)),
