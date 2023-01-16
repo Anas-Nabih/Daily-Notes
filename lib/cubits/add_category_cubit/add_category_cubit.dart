@@ -20,8 +20,8 @@ class AddCategoryCubit extends Cubit<AddCategoryState> {
     try{
       Box categoriesBox = Hive.box<CategoryModel>(Const.categoriesBox);
       await categoriesBox.add(category);
-      print("catName: ");
-      print("catName: ${category.catName}");
+      debugPrint("catName: ");
+      debugPrint("catName: ${category.catName}");
       emit(AddCategorySuccess());
     }catch(e){
       emit(AddCategoryFailure(errorMsg: "Some thing wrong happened: ${e.toString()}"));

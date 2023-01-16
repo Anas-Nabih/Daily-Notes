@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/widgets/filter_container.dart';
-import 'package:sizer/sizer.dart';
 
 class HomeTabs extends StatelessWidget {
   const HomeTabs({Key? key}) : super(key: key);
@@ -21,12 +20,11 @@ class HomeTabs extends StatelessWidget {
                 isAll: BlocProvider.of<NotesCubit>(context).isAll),
             FilterContainer(
                 title: "Folder",
-                onTapped: () => BlocProvider.of<NotesCubit>(context)
-                    .emit(NotesFolder()),
+                onTapped: () =>
+                    BlocProvider.of<NotesCubit>(context).emit(NotesFolder()),
                 isAll: !BlocProvider.of<NotesCubit>(context).isAll),
           ],
         ),
-
       ],
     );
   }

@@ -7,7 +7,7 @@ import 'package:notes_app/widgets/notes_place_holder.dart';
 import 'package:sizer/sizer.dart';
 
 class NotesListView extends StatefulWidget {
-  const NotesListView({
+  const   NotesListView({
     Key? key,
   }) : super(key: key);
 
@@ -24,8 +24,10 @@ class _NotesListViewState extends State<NotesListView> {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("triggerd from build");
     return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
+        debugPrint("triggerd from builder");
         var notes = BlocProvider.of<NotesCubit>(context).notes ?? [];
         return notes.isEmpty
             ? const NotesPalaceHolder(
@@ -33,6 +35,7 @@ class _NotesListViewState extends State<NotesListView> {
                 subtitle: "Tap the Add button to create a note.",
               )
             : ListView.separated(
+          padding: EdgeInsets.only(top: 1.h,left: 3.w,right: 3.w),
                 separatorBuilder: (context, index) => SizedBox(height: 2.h),
                 itemCount: notes.length,
                 itemBuilder: (context, index) => NoteItem(
