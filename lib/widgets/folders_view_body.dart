@@ -31,7 +31,7 @@ class _FoldersViewBodyState extends State<FoldersViewBody> {
           return categories.isEmpty
               ? const NotesPalaceHolder(
                   title: "No Folders",
-                  subtitle: "Tap the Add button to create one. ",
+                  subtitle: "Tap the Add button to create one.",
                 )
               : GridView.builder(
                   itemCount: categories.length,
