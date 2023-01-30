@@ -1,17 +1,17 @@
-# notes_app
+# Daily Notes 📝📌
 
-A new Flutter project.
+- **cross platform app built with Cubit Pattern, Clean code & Clean Architecture and have Data Manager, Prefs manager and Utils manager.**
+- **app built with "Cubit Pattern" and "Hive package" to handle database**
+- **app take notes, reminders, set targets, collect resources and secure privacy.**
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Packages i use: 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# Notes_app" 
+- **bloc:** [link](https://pub.dev/packages/bloc)
+- **flutter_bloc:** [link](https://pub.dev/packages/flutter_bloc)
+- **hive:** [link](https://pub.dev/packages/hive)
+- **hive_flutter:** [link](https://pub.dev/packages/hive_flutter)
+- **sizer:** [link](https://pub.dev/packages/sizer)
+- **flutter_svg:** [link](https://pub.dev/packages/flutter_svg)
+- **intl:** [link](https://pub.dev/packages/intl)
+- **modal_progress_hud_nsn:** [link](https://pub.dev/packages/modal_progress_hud_nsn)
