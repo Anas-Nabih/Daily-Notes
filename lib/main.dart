@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -43,5 +45,44 @@ class NotesApp extends StatelessWidget {
                   theme: DarkStyles.darkTheme(context),
                   home: Home()),
             ));
+  }
+}
+
+
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  Color _backgroundColor = Colors.white;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _backgroundColor = Color.fromRGBO(
+            Random().nextInt(256),
+            Random().nextInt(256),
+            Random().nextInt(256),
+            1,
+          );
+        });
+      },
+      child: Container(
+        color: _backgroundColor,
+        child: Center(
+          child: Text(
+            "Hey there",
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
